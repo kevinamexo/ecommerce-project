@@ -1,0 +1,27 @@
+.navbar {
+  height: 40px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(1, 29, 71);
+}
+
+.navbar__logo-section {
+}
+
+.navbar__navItems {
+  display: flex;
+  justify-content: spaced-evenly;
+  align-items: center;
+  list-style-type: none;
+}
+.navbar__navItems li {
+  cursor: pointer;
+}
+.navbar__navItems li,
+.navbar__navItems {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
