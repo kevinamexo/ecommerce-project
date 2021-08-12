@@ -3,7 +3,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./components/Pages/Home";
 import Products from "./components/Pages/Products/Products";
-import Product from "./components/Pages/Product/Product";
+import ProductPage from "./components/Pages/Product/Product";
 
 import { Switch, Route } from "react-router-dom";
 
@@ -14,7 +14,7 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/products" component={Products} />
-        <Route exact path="/products/:id" component={Product} />
+        <Route exact path="/products/:productId" component={ProductPage} />
       </Switch>
     </div>
   );

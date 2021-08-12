@@ -1,5 +1,7 @@
 .productsPage {
   padding: 10px 40px;
+  height: 100%;
+  width: 100%;
 }
 .productSection-products {
   display: grid;

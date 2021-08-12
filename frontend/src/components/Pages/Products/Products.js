@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-import { Route, useRouteMatch } from "react-router-dom";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Product from "../../Product";
+import ProductPage from "../Product/Product";
 import "./Products.css";
 
 //Actions
@@ -10,9 +11,12 @@ import { getProducts as listProducts } from "../../../redux/actions/productActio
 const Products = ({ match }) => {
   const dispatch = useDispatch();
   const getProducts = useSelector((state) => state.getProducts);
-  const products = getProducts.products.data;
-  const loading = getProducts.loading;
-  const { path, url } = useRouteMatch();
+  // const products = getProducts.products.data;
+  // const loading = getProducts.loading;
+  // const error = getProducts.error;
+  const { loading, error, products } = getProducts;
+  const { path } = useRouteMatch();
+
   useEffect(() => {
     dispatch(listProducts());
     console.log(products);
@@ -21,21 +25,20 @@ const Products = ({ match }) => {
 
   return (
     <div>
-      <Route exact path={path}>
-        <div className="productsPage">
-          <h3>Products Page</h3>
-          <div className="productSection-products">
-            {products &&
-              !loading &&
-              products.map((product) => (
-                <Product key={product._id} product={product} />
-              ))}
+      <Switch>
+        <Route exact path={path}>
+          <div className="productsPage">
+            <h3>Products Page</h3>
+            <div className="productSection-products">
+              {products.data &&
+                !loading &&
+                products.data.map((product) => (
+                  <Product key={product._id} product={product} />
+                ))}
+            </div>
           </div>
-        </div>
-      </Route>
-      <Route exact path={`${path}/:id`}>
-        <Product />
-      </Route>
+        </Route>
+      </Switch>
     </div>
   );
 };
