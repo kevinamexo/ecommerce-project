@@ -1,4 +1,9 @@
 export const ADD_TO_CART = "ADD_TO_CART";
+export const ADD_FROM_CART = "ADD_FROM_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 export const OPEN_CART = "OPEN_CART";
+export const CALCULATE_TOTAL = "CALCULATE_TOTAL";
+export const CALCULATE_ITEMS = "CALCULATE_ITEMS";
 export const CART_RESET = "CART_RESET";
+export const INCREASE_ITEM = "INCREASE_ITEM";
+export const DECREASE_ITEM = "DECREASE_ITEM";
