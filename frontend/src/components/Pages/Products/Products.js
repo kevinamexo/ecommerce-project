@@ -5,7 +5,7 @@ import Product from "../../Product";
 import ProductPage from "../Product/Product";
 import "./Products.css";
 
-//Actions
+//Actionss
 import { getProducts as listProducts } from "../../../redux/actions/productActions";
 
 const Products = ({ match }) => {
@@ -27,16 +27,20 @@ const Products = ({ match }) => {
     <div>
       <Switch>
         <Route exact path={path}>
-          <div className="productsPage">
-            <h3>Products Page</h3>
-            <div className="productSection-products">
-              {products.data &&
-                !loading &&
-                products.data.map((product) => (
-                  <Product key={product._id} product={product} />
-                ))}
+          {loading ? (
+            <h2>Loading</h2>
+          ) : (
+            <div className="productsPage">
+              <h3>Products Page</h3>
+              <div className="productSection-products">
+                {products.data &&
+                  !loading &&
+                  products.data.map((product) => (
+                    <Product key={product._id} product={product} />
+                  ))}
+              </div>
             </div>
-          </div>
+          )}
         </Route>
       </Switch>
     </div>

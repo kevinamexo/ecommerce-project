@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
 import { FaShoppingCart } from "react-icons/fa";
-
+import NavbarSearch from "./NavbarSearch";
 import MiniCart from "./MiniCart";
 import "./Navbar.css";
 
@@ -31,10 +31,13 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="navbar__logo-section">
-        <Link>
+        <Link to="/">
           <h3>The Online Store</h3>
         </Link>
       </div>
+
+      <NavbarSearch />
+
       <ul className="navbar__navItems">
         <li>
           <Link to="/">Home</Link>

@@ -31,6 +31,7 @@ export const cartReducer = (state = initialState, action) => {
               ? { ...existItem, qty: currentAmount + item.qty }
               : x
           ),
+          cartTotal: state.cartTotal + item.qty,
         };
       } else {
         return {
@@ -56,11 +57,15 @@ export const cartReducer = (state = initialState, action) => {
             x.product === replacedQty.product ? replacedQty : x
           ),
         ],
+        cartTotal: state.cartTotal + quantity,
       };
     case actionTypes.REMOVE_FROM_CART:
       return {
         ...state,
         cartItems: state.cartItems.filter((x) => x.product !== action.payload),
+        cartTotal: state.cartItems.reduce((prev, cur) => {
+          return prev + cur.qty;
+        }),
       };
 
     case actionTypes.INCREASE_ITEM:
@@ -76,11 +81,13 @@ export const cartReducer = (state = initialState, action) => {
               ? { ...existItem, qty: existItem.qty + 1 }
               : x
           ),
+          cartTotal: state.cartTotal + quantity,
         };
       } else {
         return {
           ...state,
           cartItems: [...state.cartItems, item],
+          cartTotal: state.cartTotal + quantity,
         };
       }
 

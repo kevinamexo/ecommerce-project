@@ -75,3 +75,23 @@ exports.deleteProductById = asyncHandler(async (req, res, next) => {
 });
 
 // search controller
+
+exports.findProductByName = asyncHandler(async (req, res, next) => {
+  let reqQuery = { ...req.query };
+  let searchQuery = reqQuery.search_query;
+
+  //deal with filtering and sorting when you're done
+
+  // let searchQueryString= JSON.stringify(searchQuery);
+
+  let term = new RegExp(`${searchQuery}`, "i");
+
+  let searchResults = await Product.find({ name: term });
+
+  console.log(searchQuery);
+  res.status(201).json({
+    success: true,
+    data: searchResults,
+    message: "Find by name route",
+  });
+});

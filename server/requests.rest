@@ -1,3 +1,9 @@
 ###
 GET http://localhost:8000/api/products/61036c936ea4c710c8a8f116
 
+
+
+###
+GET http://localhost:8000/api/products/search?search_query=i
+Content-Type: application/json
+
