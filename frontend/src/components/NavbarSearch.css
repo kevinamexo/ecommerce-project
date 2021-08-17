@@ -1,6 +1,6 @@
 .navbarSearch {
   /* height: 30px; */
-  width: 100%;
+
   width: 40%;
   position: absolute;
   top: 50%;
@@ -41,21 +41,29 @@
 .navbarSearch input {
   height: 100%;
 }
+.navbarSearch input:active,
+.navbarSearch input:focus {
+  border: none;
+  outline: none;
+}
 
 .searchMenu {
   background-color: rgb(225, 227, 224);
   /* height: 50px; */
-  max-height: 500px;
+  max-height: 550px;
   width: 95%;
   margin-left: 2.5%;
   position: absolute;
   top: 30px;
   left: 0;
   padding: 0;
-  max-height: 200px;
+  max-height: 220px;
   overflow-y: hidden;
 }
 
+.searchMenu-item a {
+  color: black;
+}
 .searchMenu ul {
   height: 100%;
   width: 100%;

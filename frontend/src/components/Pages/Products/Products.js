@@ -15,7 +15,7 @@ const Products = ({ match }) => {
   // const loading = getProducts.loading;
   // const error = getProducts.error;
   const { loading, error, products } = getProducts;
-  const { path } = useRouteMatch();
+  const { url, path } = useRouteMatch();
 
   useEffect(() => {
     dispatch(listProducts());
@@ -25,24 +25,16 @@ const Products = ({ match }) => {
 
   return (
     <div>
-      <Switch>
-        <Route exact path={path}>
-          {loading ? (
-            <h2>Loading</h2>
-          ) : (
-            <div className="productsPage">
-              <h3>Products Page</h3>
-              <div className="productSection-products">
-                {products.data &&
-                  !loading &&
-                  products.data.map((product) => (
-                    <Product key={product._id} product={product} />
-                  ))}
-              </div>
-            </div>
-          )}
-        </Route>
-      </Switch>
+      <div className="productsPage">
+        <h3>Products Page</h3>
+        <div className="productSection-products">
+          {products.data &&
+            !loading &&
+            products.data.map((product) => (
+              <Product key={product._id} product={product} />
+            ))}
+        </div>
+      </div>
     </div>
   );
 };

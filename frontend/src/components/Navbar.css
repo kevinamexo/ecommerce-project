@@ -1,6 +1,5 @@
-.navbar a {
+a {
   text-decoration: none;
-  color: #fff;
 }
 .navbar {
   height: 60px;
@@ -13,6 +12,13 @@
   position: relative;
 }
 
+.navbar-link a,
+.navbar-link {
+  color: #fff;
+}
+.hidden {
+  display: hidden;
+}
 .navbar__logo-section {
 }
 

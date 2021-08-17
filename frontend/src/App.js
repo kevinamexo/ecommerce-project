@@ -19,8 +19,8 @@ const App = () => {
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/product/:productId" component={ProductPage} />
         <Route exact path="/products" component={Products} />
-        <Route exact path="/products/:productId" component={ProductPage} />
       </Switch>
     </div>
   );

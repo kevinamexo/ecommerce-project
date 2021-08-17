@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useRouteMatch } from "react-router-dom";
+import {
+  useParams,
+  useRouteMatch,
+  Switch,
+  Link,
+  Route,
+  useHistory,
+} from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "./Product.css";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -11,10 +19,9 @@ const Product = () => {
   const dispatch = useDispatch();
   const productDetails = useSelector((state) => state.getProductDetails);
   const { loading, product, error } = productDetails;
-
+  const { url } = useRouteMatch();
+  const history = useHistory();
   const [quantity, setQuantity] = useState(1);
-
-  //eventListeners
 
   const decrementQuantity = (e) => {
     if (quantity > 0) {
@@ -30,7 +37,7 @@ const Product = () => {
   useEffect(() => {
     dispatch(fetchProductDetails(productId));
     console.log(product);
-  }, [dispatch]);
+  }, [dispatch, url]);
 
   return (
     <div className="product-page">
@@ -63,6 +70,8 @@ const Product = () => {
                 Add To Cart
               </button>
             </div>
+
+            <Link to='/products/61036c936ea4c710c8a8f117"'></Link>
           </div>
         </>
       )}

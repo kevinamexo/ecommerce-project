@@ -15,7 +15,7 @@ const Product = ({ product }) => {
         <img src={product.imageUrl} alt={product.name} />
       </div>
       <div className="product-details">
-        <Link to={`products/${product._id}`}>
+        <Link to={`product/${product._id}`}>
           <p className="product-details__name line-clamp">{product.name}</p>
         </Link>
 
