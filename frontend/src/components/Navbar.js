@@ -100,7 +100,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navbar__logo-section">
         <Link to="/">
-          <h3 className="navbar-link">The Online Store</h3>
+          <h3 className="navbar-title">The Online Store</h3>
         </Link>
       </div>
 
@@ -110,6 +110,9 @@ const Navbar = () => {
       <ul className="navbar__navItems">
         <li className="navbar-link">
           <Link to="/">Home</Link>
+        </li>
+        <li className="navbar-link">
+          <Link to="/admin">ADMIN</Link>
         </li>
         <li className="navbar-link">
           <Link to="/products">Products</Link>

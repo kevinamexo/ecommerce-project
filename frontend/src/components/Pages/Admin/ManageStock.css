@@ -1,0 +1,92 @@
+.manageStock {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.manageStock header {
+  padding-top: 20px;
+}
+
+.manageStock h2 {
+  text-align: center;
+}
+
+.manageStockForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  margin-top: 30px;
+}
+.manageStockForm .form-group {
+  width: 100%;
+  padding: 10px;
+}
+.form-group__label {
+  text-align: center;
+  width: 100%;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
+.manageStockForm input {
+  width: 100%;
+  height: 2em;
+  font-size: 1em;
+}
+
+.productSearchMenu {
+  margin-top: 0px;
+
+  width: 100%;
+  margin-top: 0 auto;
+  max-height: 220px;
+  background-color: rgb(225, 227, 224);
+  overflow-y: hidden;
+}
+
+.productSearchMenu-item a {
+  color: black;
+}
+.productSearchMenu ul {
+  height: 100%;
+  width: 100%;
+  list-style-type: none;
+}
+.productSearchMenu-item {
+  height: 50px;
+  padding: 10px;
+  color: black;
+  cursor: pointer;
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.productSearchMenu-item:hover {
+  background-color: rgb(208, 208, 208);
+}
+
+.manageStock-submit {
+  width: 140px;
+  padding: 5px 10px;
+  color: #fff;
+  background-color: rgb(48, 48, 48);
+  font-size: 1.1em;
+  border-radius: 5px;
+  outline: none;
+}
+
+.error {
+  color: red;
+}
+.success {
+  margin-top: 20px;
+  background-color: rgb(40, 216, 205);
+  color: rgb(11, 67, 63);
+  padding: 10px;
+  border-radius: 5px;
+}

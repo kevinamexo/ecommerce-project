@@ -20,6 +20,7 @@ a {
   display: hidden;
 }
 .navbar__logo-section {
+  z-index: 100;
 }
 
 .navbar__navItems {
@@ -32,6 +33,10 @@ a {
   max-width: 500px;
 }
 
+.navbar-title {
+  color: #fff;
+  font-size: 1.3em;
+}
 .navbar__navItems li {
   cursor: pointer;
   display: flex;

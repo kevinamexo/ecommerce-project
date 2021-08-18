@@ -2,8 +2,19 @@
 GET http://localhost:8000/api/products/61036c936ea4c710c8a8f116
 
 
-
 ###
 GET http://localhost:8000/api/products/search?search_query=i
 Content-Type: application/json
 
+###
+PUT http://localhost:8000/api/products/61036c936ea4c710c8a8f116?type=addToStock&amount=10
+
+
+###
+PUT http://localhost:8000/api/products/61036c936ea4c710c8a8f116?type=removeFromStock&amount=1
+
+
+
+# {
+#     "countInStock":3
+# }

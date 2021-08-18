@@ -3,7 +3,9 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./components/Pages/Home";
 import Products from "./components/Pages/Products/Products";
+import Admin from "./components/Pages/Admin/Admin";
 import ProductPage from "./components/Pages/Product/Product";
+import CartPage from "./components/Pages/CartPage/CartPage";
 
 import { Switch, Route } from "react-router-dom";
 
@@ -21,6 +23,9 @@ const App = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/product/:productId" component={ProductPage} />
         <Route exact path="/products" component={Products} />
+        <Route path="/admin" component={Admin} />
+        <Route path="/cart" component={CartPage} />
+        <Route exact path="/admin/:page" component={Admin} />
       </Switch>
     </div>
   );

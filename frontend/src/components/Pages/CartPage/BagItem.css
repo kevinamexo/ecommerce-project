@@ -1,0 +1,74 @@
+.checkOut-bagItem {
+  height: 180px;
+  padding: 10px 15px;
+  border-bottom: 1px solid rgb(199, 199, 199);
+  display: grid;
+  grid-template-columns: 200px auto;
+  position: relative;
+}
+.checkOut-bagItem-imgContainer {
+  height: 150px;
+  width: 150px;
+}
+
+.checkOut-bagItem-imgContainer img {
+  height: 150px;
+  object-fit: contain;
+  width: 150px;
+}
+
+.checkOut-bagItem-details {
+  padding: 23px 0;
+}
+
+.checkOut-bagItem__itemPrice {
+  font-weight: bold;
+  color: red;
+}
+
+.checkOut-bagItem__itemName {
+  margin-top: 10px;
+  font-weight: 500;
+  color: rgb(37, 37, 37);
+}
+
+.checkOut-bagItem__removeItem {
+  position: absolute;
+  right: 15px;
+  color: rgb(37, 37, 37);
+  top: 35px;
+  cursor: pointer;
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+.checkOut-bagItem-save {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+.checkOut-bagItem-save span {
+  display: flex;
+  align-items: center;
+}
+
+.checkOut-bagItem__saveButton {
+  font-size: 2em;
+  color: rgb(130, 130, 130);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.checkOut-bagItem__saveButton:hover {
+  color: rgb(223, 34, 34);
+}
+
+.checkOut-bagItem-save p {
+  margin-left: 10px;
+}
+
+.checkOut-bagItem__qty {
+  display: flex;
+  flex-direction: column;
+}

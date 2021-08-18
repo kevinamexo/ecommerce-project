@@ -39,21 +39,50 @@ exports.findProductById = asyncHandler(async (req, res, next) => {
 });
 
 exports.updateProductById = asyncHandler(async (req, res, next) => {
+  if (req.query) {
+    console.log(req.query);
+  }
   let product = await Product.findById(req.params.id);
+  // let product = await Product.findById(req.params.id);
+  let c = product.countInStock;
+  let count = c;
+
   if (!product) {
     return next(
-      ErrorResponse(`Product with id ${req.params.id} was not found`, 404)
+      new ErrorResponse(`Product with id ${req.params.id} was not found`, 404)
     );
   }
+  if (req.query.type === "addToStock") {
+    product = await Product.findByIdAndUpdate(
+      req.params.id,
+      {
+        countInStock: count + Number(req.query.amount),
+      },
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
+  } else if ((req.query.type = "removeFromStock")) {
+    if (req.query.amount > count) {
+      return next(
+        new ErrorResponse("Requested amount exceeds count in stock", 400)
+      );
+    }
 
-  product = await Product.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true,
-  });
-
+    product = await Product.findByIdAndUpdate(req.params.id, {
+      countInStock: count - Number(req.query.amount),
+    });
+  } else {
+    product = await Product.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+  }
   res.status(201).json({
     success: true,
     data: product,
+    prevStock: count,
   });
 });
 
@@ -93,5 +122,38 @@ exports.findProductByName = asyncHandler(async (req, res, next) => {
     success: true,
     data: searchResults,
     message: "Find by name route",
+  });
+});
+
+exports.updateStock = asyncHandler(async (req, res, next) => {
+  const id = req.params.id;
+  const stock = req.params.stock;
+
+  console.log(id);
+  console.log(stock);
+
+  // let product = await Hotel.findById(id);
+  // let prevAmomunt = product.countInStock;
+  // if (!product) {
+  //   return next(ErrorResponse(`Product with id ${id} not found`, 404));
+  // }
+
+  // console.log(prevAmount + req.body.counInStock);
+
+  // let product = await Product.findByIdAndUpdate(
+
+  //   id,
+  //   {
+  //     countInStock: prevAmount + Number(req.body.countInStock),
+  //   },
+  //   {
+  //     runValidators: true,
+  //     new: true,
+  //   }
+  // );
+
+  res.status(200).json({
+    success: true,
+    message: `${product} updated, req`,
   });
 });
